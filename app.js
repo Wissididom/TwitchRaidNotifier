@@ -213,13 +213,13 @@ async function subChannel() {
 	let channelName = document.getElementById("channelName").value.toLowerCase().replace('@', '');
 	let channelList = document.getElementById("channelList");
 	let option = document.createElement("option");
+	let users = await getUsers([channelName]);
 	option.value = users[0].id;
 	option.text = channelName;
 	channelList.appendChild(option);
 	if (channelList.length < 1) {
 		await connectWs();
 	}
-	let users = await getUsers([channelName]);
 	if (sessionId) {
 		await createEventSubSubscription(users[0].id);
 	}
