@@ -217,7 +217,7 @@ async function subChannel() {
 	option.value = users[0].id;
 	option.text = channelName;
 	channelList.appendChild(option);
-	if (channelList.length < 1) {
+	if (channelList.length < 2) {
 		await connectWs();
 	}
 	if (sessionId) {
